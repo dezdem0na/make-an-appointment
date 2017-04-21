@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        <h3>На прием к врачу</h3>
+
+        <form action="" method="post">{% csrf_token %}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {{ form.non_field_errors }}
+
+            <div class="fieldWrapper {% if form.appointment.field.required %}required{% endif %}">
+                {{ form.appointment.errors }}
+                <label for="{{ form.appointment.id_for_label }}">Время приема</label>
+                {{ form.appointment }}
+            </div>
+            <div class="fieldWrapper {% if form_extra.specialty.field.required %}required{% endif %}">
+                {{ form_extra.specialty.errors }}
+                <label for="{{ form_extra.specialty.id_for_label }}">Специалист</label>
+                {{ form_extra.specialty }}
+            </div>
+            <div class="fieldWrapper {% if form.specialist.field.required %}required{% endif %}">
+                {{ form.specialist.errors }}
+                <label for="{{ form.specialist.id_for_label }}">Имя специалиста</label>
+                {{ form.specialist }}
+            </div>
+            <div class="fieldWrapper {% if form.patient_name_first.field.required %}required{% endif %}">
+                {{ form.patient_name_first.errors }}
+                <label for="{{ form.patient_name_first.id_for_label }}">Ваше имя</label>
+                {{ form.patient_name_first }}
+            </div>
+            <div class="fieldWrapper {% if form.patient_name_last.field.required %}required{% endif %}">
+                {{ form.patient_name_last.errors }}
+                <label for="{{ form.patient_name_last.id_for_label }}">Ваша фамилия</label>
+                {{ form.patient_name_last }}
+            </div>
+            <div class="fieldWrapper {% if form.patient_name_middle.field.required %}required{% endif %}">
+                {{ form.patient_name_middle.errors }}
+                <label for="{{ form.patient_name_middle.id_for_label }}">Ваше отчество</label>
+                {{ form.patient_name_middle }}
+            </div>
+
+            <input class="button-primary" type="submit" value="Записаться"/>
+        </form>
+    </div>
+
+{% endblock %}

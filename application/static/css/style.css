@@ -1,0 +1,45 @@
+/* Mobile first queries */
+.container {
+  margin-top: 1rem;
+  min-width: 355px;
+}
+input[type="datetime-local"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+form {
+  max-width: 310px;
+}
+input,
+select {
+  width: 100%;
+}
+p {
+  margin-bottom: 0;
+}
+ul.errorlist li {
+  display: block;
+  padding: 20px;
+  border-left: 5px solid;
+  background-color: #f2d7d5;
+  border-left-color: #c0392b;
+  color: #c0392b;
+}
+li.success {
+  display: block;
+  padding: 20px;
+  border-left: 5px solid;
+  background-color: #d5f5e3;
+  border-left-color: #2ecc71;
+  color: #2ecc71;
+}
+.required label:after {
+  content: " *";
+  color: #ff756b;
+}
+/* Larger than mobile */
