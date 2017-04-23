@@ -8,7 +8,7 @@ Install dependencies
 $ pip install -r requirements.txt
 ```
 
-Run 
+Run devserver
 ```sh
 $ manage.py runserver
 ```
@@ -16,4 +16,9 @@ $ manage.py runserver
 Run tests
 ```sh
 $ coverage run manage.py test
+```
+
+Run docker 
+```sh
+$ docker-compose up
 ```
