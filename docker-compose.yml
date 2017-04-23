@@ -1,9 +1,23 @@
  version: '2'
  services:
-   web:
-     build: .
-     command: python3 manage.py runserver 0.0.0.0:8000
-     volumes:
-       - .:/code
-     ports:
-       - "8000:8000"
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - fixtures
+  fixtures:
+    build: .
+    command: python3 manage.py loaddata initial
+    volumes:
+      - .:/code
+    depends_on:
+      - migration
+  migration:
+    build: .
+    command: python3 manage.py migrate
+    volumes:
+      - .:/code
